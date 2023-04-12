@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calciii</title>
+</head>
+<body>
+    
+    <article>
+        <form>
+            <input type="text" class="Res"><br>
+            <button class="btn" value="+">+</button>
+            <button class="btn" value="-">-</button>
+            <button class="btn" value="*">x</button>
+            <button class="btn" value="/">/</button><br>
+            <button class="btn" value="1">1</button>
+            <button class="btn" value="2">2</button>
+            <button class="btn" value="3">3</button><br>
+            <button class="btn" value="4">4</button>
+            <button class="btn" value="5">5</button>
+            <button class="btn" value="6">6</button><br>
+            <button class="btn" value="7">7</button>
+            <button class="btn" value="8">8</button>
+            <button class="btn" value="9">9</button><br>
+            <button class="btn" value="0">0</button>
+            <button class="btn" value="Clear">Clear</button>
+            <button class="equalBtn" value="=">=</button>
+        </form>
+    </article>
+
+    <script>
+        let form= document.querySelector("form")
+        let input=document.querySelector("input")
+        let btns=document.querySelectorAll(".btn");
+        let equalBtn=document.querySelector(".equalBtn");
+        // let buttons=Array.from(btns)
+        // console.log(Array.isArray(buttons));
+         form.addEventListener("click",(e)=>{
+            e.preventDefault();
+         })
+         btns.forEach(button=>{
+            button.addEventListener("click",(e)=>{
+                console.log(e.target.value);
+                if(e.target.value=="Clear"){
+                    (input.value)=("");
+                }
+                else{
+                    (input.value)+=(e.target.value)
+                }
+            })
+         })
+         equalBtn.addEventListener("click",(e)=>{
+              if(e.target.value=="="){
+                    console.log(input.value);
+                    (input.value)=parseFloat(eval(input.value))
+                }
+         })
+    </script>
+</body>
+</html>
